@@ -4,6 +4,9 @@
 #include "../include/Jsc.h"
 #include "../include/NGO.h"
 #include "../include/Fund.h"
+#include "../include/SummaryReport.h"
+#include "../include/ChartReport.h"
+#include "../include/ReportGenerator.h"
 #include "../include/EducationalInstitution.h"
 
 TEST(RegistrarTest, RegisterAndPrintAll) {
@@ -65,3 +68,25 @@ TEST(RegistrarTest, ClearAll) {
     EXPECT_TRUE(output.empty());
 }
 
+TEST(SummaryReportTest, GeneratesCorrectOutput) {
+    SummaryReport summary;
+    std::vector<std::string> data = {"Item A", "Item B", "Item C"};
+
+    std::string expected = "Summary Report:\n";
+    expected += "- Item A\n";
+    expected += "- Item B\n";
+    expected += "- Item C\n";
+
+    EXPECT_EQ(summary.generate(data), expected);
+}
+
+TEST(ChartReportTest, GeneratesCorrectChart) {
+    ChartReport chart;
+    std::vector<std::string> data = {"Apple", "Kiwi"};
+
+    std::string expected = "Chart Report:\n";
+    expected += "Apple | █████\n";
+    expected += "Kiwi | ████\n";
+
+    EXPECT_EQ(chart.generate(data), expected);
+}
