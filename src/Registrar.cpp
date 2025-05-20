@@ -67,7 +67,7 @@ void Registrar::removeByName(const std::string& name) {
 
 std::vector<std::string> Registrar::getNames() const {
     std::vector<std::string> names;
-    for (auto org : organizations) {
+    for (auto org : registry) {
         names.push_back(org->getName());
     }
     return names;
