@@ -13,7 +13,7 @@ std::string NonCommercialOrganization::getType() const {
 }
 
 std::string NonCommercialOrganization::getSector() const {
-    return "N/A";
+    return "Not Applicable";
 }
 
 bool NonCommercialOrganization::isCommercial() const {
