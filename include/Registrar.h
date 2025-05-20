@@ -13,6 +13,7 @@ public:
     void printByCountry(const std::string& country) const;
     void printBySector(const std::string& sector) const;
     void removeByName(const std::string& name);
+    std::vector<std::string> getNames() const;
     void clear();
     ~Registrar();
 };
