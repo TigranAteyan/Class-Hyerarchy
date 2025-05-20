@@ -55,6 +55,18 @@ TEST(RegistrarTest, PrintByCountry) {
     EXPECT_NE(output.find("LLC2"), std::string::npos);
 }
 
+TEST(RegistrarTest, GetOrganizationNamesReturnsCorrectList) {
+    Registrar registrar;
+    registrar.registerOrganization(new LLC("LLC One", "USA", "Reg1", "Retail"));
+    registrar.registerOrganization(new NGO("Helping Hands", "Germany", "Reg2"));
+
+    std::vector<std::string> names = registrar.getNames();
+
+    ASSERT_EQ(names.size(), 2);
+    EXPECT_EQ(names[0], "LLC One");
+    EXPECT_EQ(names[1], "Helping Hands");
+}
+
 TEST(RegistrarTest, ClearAll) {
     Registrar registrar;
     registrar.registerOrganization(new NGO("NGO2", "Spain", "Reg9"));
